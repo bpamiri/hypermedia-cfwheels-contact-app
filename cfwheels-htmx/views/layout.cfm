@@ -1,13 +1,25 @@
-<!--- Place HTML here that should be used as the default layout of your application. --->
-<html>
+<cfoutput>
+<!doctype html>
+<html lang="">
 	<head>
-		<cfoutput>#csrfMetaTags()#</cfoutput>
+		<title>Contact App</title>
+		#csrfMetaTags()#
+		#styleSheetLinkTag("missing.min,site")#
+		#javaScriptIncludeTag("htmx,_hyperscript,rsjs-menu")#
+    <script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>
 	</head>
 
-	<body>
-		<cfoutput>
+	<body hx-boost="true">
+		<main>
+			<header>
+					<h1>
+							<all-caps>contacts.app</all-caps>
+							<sub-title>A Demo Contacts Application</sub-title>
+					</h1>
+			</header>
 			#flashMessages()#
 			#includeContent()#
-		</cfoutput>
+		</main>
 	</body>
 </html>
+</cfoutput>
